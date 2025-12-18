@@ -9,8 +9,8 @@ services:
 
   proxy:
     image: nginx:alpine
-    ports:
-      - "5000:5000"
+    expose:
+      - "5000"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - ./auth:/auth:ro
