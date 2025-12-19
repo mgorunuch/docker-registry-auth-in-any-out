@@ -1,6 +1,8 @@
 services:
   registry:
-    image: registry:2
+    build:
+      context: .
+      dockerfile: Dockerfile.registry
     expose:
       - "5000"
     environment:
@@ -11,18 +13,14 @@ services:
       REGISTRY_AUTH_TOKEN_ROOTCERTBUNDLE: /certs/server.crt
     volumes:
       - registry-data:/var/lib/registry
-      - ./certs:/certs:ro
     restart: unless-stopped
 
   auth:
-    image: cesanta/docker_auth:1
+    build:
+      context: .
+      dockerfile: Dockerfile.auth
     expose:
       - "5001"
-    volumes:
-      - ./auth_config.yml:/config/auth_config.yml:ro
-      - ./certs:/certs:ro
-      - ./auth:/auth:ro
-    command: /config/auth_config.yml
     restart: unless-stopped
 
   proxy:

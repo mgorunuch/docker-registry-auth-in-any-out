@@ -1,0 +1,7 @@
+FROM cesanta/docker_auth:1
+
+COPY auth_config.yml /config/auth_config.yml
+COPY certs/server.crt /certs/server.crt
+COPY certs/server.key /certs/server.key
+
+CMD ["/config/auth_config.yml"]
