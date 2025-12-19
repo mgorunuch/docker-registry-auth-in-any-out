@@ -9,7 +9,7 @@ token:
 
 users:
   "ihormac":
-    password: "$apr1$JwZOp04Z$8SS.iJTlUUoPuuaxlHK/R/"
+    password: "$2y$05$51vJ7Hn0CWJakRtbeXKtHuIWf/PZXUg4sTQyc.PnJq7koYMkSs3wq"
 
 acl:
   - match: {account: ""}
