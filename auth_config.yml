@@ -1,0 +1,20 @@
+server:
+  addr: ":5001"
+
+token:
+  issuer: "docker-auth"
+  expiration: 900
+  certificate: "/certs/server.crt"
+  key: "/certs/server.key"
+
+users:
+  "ihormac":
+    password: "$apr1$JwZOp04Z$8SS.iJTlUUoPuuaxlHK/R/"
+
+acl:
+  - match: {account: ""}
+    actions: ["pull"]
+    comment: "Anonymous users can pull"
+  - match: {account: "/.+/"}
+    actions: ["*"]
+    comment: "Authenticated users can do anything"
